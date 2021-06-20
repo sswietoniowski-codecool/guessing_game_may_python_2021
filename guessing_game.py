@@ -2,23 +2,26 @@ import math
 import random
 
 
-def main():
-    a = []
-    for _ in range(10):
-        a.append(random.randint(1, 99))
-
+def play_game(numbers):
     for i in range(10):
-        g = int(input("Enter an integer from 1 to 99: "))
-        while a[i] != g:
-            if g < a[i]:
+        guessed_number = int(input("Enter an integer from 1 to 99: "))
+        while numbers[i] != guessed_number:
+            if guessed_number < numbers[i]:
                 print("guess is low")
-                g = int(input("Enter an integer from 1 to 99: "))
-            elif g > a[i]:
+                guessed_number = int(input("Enter an integer from 1 to 99: "))
+            elif guessed_number > numbers[i]:
                 print("guess is high")
-                g = int(input("Enter an integer from 1 to 99: "))
+                guessed_number = int(input("Enter an integer from 1 to 99: "))
             else:
                 break
         print("you guessed it!")
+
+def main():
+    numbers = []
+    for _ in range(10):
+        numbers.append(random.randint(1, 99))
+    play_game(numbers)
+    
 
     b = []
     for _ in range(10):
