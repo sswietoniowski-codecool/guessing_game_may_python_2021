@@ -2,19 +2,19 @@ import math
 import random
 
 
-def play_game(numbers, min_value, max_value):
-    for i in range(10):
-        guessed_number = int(
-            input(f"Enter an integer from {min_value} to {max_value}: "))
-        while numbers[i] != guessed_number:
-            if guessed_number < numbers[i]:
+def play_game(numbers, min_value, max_value):   
+    def ask_user():
+        return int(input(f"Enter an integer from {min_value} to {max_value}: "))
+
+    for number in numbers:
+        guessed_number = ask_user()
+        while number != guessed_number:
+            if guessed_number < number:
                 print("guess is low")
-                guessed_number = int(
-                    input(f"Enter an integer from {min_value} to {max_value}: "))
-            elif guessed_number > numbers[i]:
+                guessed_number = ask_user()
+            elif guessed_number > number:
                 print("guess is high")
-                guessed_number = int(
-                    input(f"Enter an integer from {min_value} to {max_value}: "))
+                guessed_number = ask_user()
             else:
                 break
         print("you guessed it!")
