@@ -2,7 +2,7 @@ import math
 import random
 
 
-def play_game(numbers, min_value, max_value):   
+def play_game(numbers, min_value, max_value):
     def ask_user():
         return int(input(f"Enter an integer from {min_value} to {max_value}: "))
 
@@ -11,7 +11,7 @@ def play_game(numbers, min_value, max_value):
         while number != guessed_number:
             guessed_number = ask_user()
             if guessed_number < number:
-                print("guess is low")                
+                print("guess is low")
             elif guessed_number > number:
                 print("guess is high")
         print("you guessed it!")
@@ -24,12 +24,14 @@ def prepare_random_numbers(count, min_value, max_value):
     return numbers
 
 
-def main():
-    numbers = prepare_random_numbers(10, 1, 99)
-    play_game(numbers, 1, 99)
+def game(count, min_value, max_value):
+    numbers = prepare_random_numbers(count, min_value, max_value)
+    play_game(numbers, min_value, max_value)
 
-    numbers = prepare_random_numbers(10, 1, 49)
-    play_game(numbers, 1, 49)
+
+def main():
+    game(10, 1, 99)
+    game(10, 1, 49)
 
 
 if __name__ == "__main__":
