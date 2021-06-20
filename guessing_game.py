@@ -7,16 +7,13 @@ def play_game(numbers, min_value, max_value):
         return int(input(f"Enter an integer from {min_value} to {max_value}: "))
 
     for number in numbers:
-        guessed_number = ask_user()
+        guessed_number = 0
         while number != guessed_number:
+            guessed_number = ask_user()
             if guessed_number < number:
-                print("guess is low")
-                guessed_number = ask_user()
+                print("guess is low")                
             elif guessed_number > number:
                 print("guess is high")
-                guessed_number = ask_user()
-            else:
-                break
         print("you guessed it!")
 
 
